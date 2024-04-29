@@ -1,0 +1,3 @@
+INDEX VERSION 1.131
+D:\Rays\Workspace\Spring WorkSpace\Spring-Boot\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1431377474.index
+\Spring-Boot\src\main\resources

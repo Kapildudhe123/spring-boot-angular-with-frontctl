@@ -1,0 +1,37 @@
+<app-navbar></app-navbar>
+
+<h3 style="color: navy;" align="center">User-Registration</h3>
+<div  *ngIf="form.message != null"  style= "color: green;" align="center">{{form.message}}</div>
+<table align="center">
+    <tr>
+        <th>FirstName: </th>
+        <td><input type="text" [(ngModel)]="form.data.firstName" name="firstName" /> </td>
+        <div style="color: red;"> <td *ngIf="inputerror.firstName!=null">{{inputerror.firstName}}</td></div>
+    </tr>
+    <tr>
+        <th>LastName: </th>
+        <td><input type="text" [(ngModel)]="form.data.lastName" name="lastName" /> </td>
+      <div  style="color: red;"> <td *ngIf="inputerror.lastName!=null">{{inputerror.lastName}}</td></div>
+    </tr>
+    <tr>
+        <th>LoginId: </th>
+        <td><input type="text" [(ngModel)]="form.data.loginId" name="loginId" /></td>
+        <div style="color: red;">  <td *ngIf="inputerror.loginId!=null">{{inputerror.loginId}}</td></div>
+    </tr>
+    <tr>
+        <th>Password: </th>
+        <td><input type="text" [(ngModel)]="form.data.password" name="password" /></td>
+        <div style="color: red;"> <td *ngIf="inputerror.password!=null">{{inputerror.password}}</td></div>
+    </tr>
+    <tr>
+        <th>DOB: </th>
+        <td><input type="date" [(ngModel)]="form.data.dob" name="dob" /> </td>
+        <div style="color: red;">   <td *ngIf="inputerror.dob!=null">{{inputerror.dob}}</td></div>
+    </tr>
+    <tr>
+        <th></th>
+        <td><button (click)="signUp()">signUp</button> </td>
+        <td><a href="/login">SignIn</a> </td>
+    </tr>
+</table>
+<app-footer></app-footer>

@@ -1,0 +1,61 @@
+<app-navbar></app-navbar>
+<div style="color: red;">
+    {{form.message}}
+</div>
+<table bgColor="gainsboro">
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <tr>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <th>FirstName:-</th>
+        <td><input type="text" [(ngModel)]="form.searchParams.firstName" />
+        </td>&nbsp;&nbsp;
+        <th>LoginID:-</th>
+        <td><input type="text" [(ngModel)]="form.searchParams.loginId" />
+        </td>&nbsp;&nbsp;
+        <th>Password:-</th>
+        <td><input type="text" [(ngModel)]="form.searchParams.password" />
+        </td>&nbsp;&nbsp;
+        <th>DOB-</th>
+        <td><input type="date" name="dob" [(ngModel)]="form.searchParams.dob" /> </td>
+        <td> <select name="roleId" [(ngModel)]="form.searchParams.roleId">
+                <option [ngValue]="" value="undefined">{{'------Select Role-------' }}</option>
+                <option *ngFor="let obj of form.preload.roleList" [value]="obj.key">{{obj.value}}</option>
+            </select></td>&nbsp;&nbsp;
+        <td><button (click)="search()">search</button></td>&nbsp;
+        <td><button (click)="delete()">delete</button></td>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </tr>
+</table>
+<table border="1" style="width: 100%; border: groove;" bgColor="gainsboro">
+    <tr align="center">
+        <th>S.NO.</th>
+        <th>Select</th>
+        <th>Image</th>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>LoginId</th>
+        <th>Password</th>
+        <th>DOB</th>
+        <th>Role</th>
+        <th>EDIT</th>
+    </tr>
+    <tr *ngFor="let m of form.list; let i=index" align="center">
+         <td>{{(form.pageNo*5)+i+1}}</td> 
+        <td><input type="checkbox" (change)="select(m.id)"></td>
+        <td> <img src="http://localhost:8080/User/profilePic/{{m.id}}" height="55px" width="80px"></td>
+        <td>{{m.firstName}}</td>
+        <td>{{m.lastName}}</td>
+        <td>{{m.loginId}}</td>
+        <td>{{m.password}}</td>
+        <td>{{m.dob}}</td>
+        <td>{{m.roleName}}</td>
+        <td><a (click)="edit('/user/'+m.id)">edit</a></td>
+    </tr>
+
+</table>
+<td>
+    <button [disabled]="form.pageNo==0" (click)="previous()">previous</button>
+</td>
+<td style="width: 95%" align="right">
+    <button [disabled]="form.list.length<5" (click)="next()">next</button>
+</td>
+<app-footer></app-footer>

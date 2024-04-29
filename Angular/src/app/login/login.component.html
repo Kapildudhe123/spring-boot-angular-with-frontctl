@@ -1,0 +1,68 @@
+<app-navbar></app-navbar>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        /* Center align the form */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        form {
+            text-align: center;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: gainsboro;
+        }
+
+        input[type="text"] {
+            width: 200px;
+            padding: 5px;
+            margin-bottom: 10px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: blue;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: darkblue;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <h2 style="color: red;">{{form.message}}</h2>
+
+        <h2 style="color: blue;">Login</h2>
+        <input type="text" placeholder="LoginID" [(ngModel)]="form.loginId" name="loginId">
+        <div style="color: red;">  <td *ngIf="inputerror.loginId!=null">{{inputerror.loginId}}</td></div>
+        <br><br>
+        <input type="text" placeholder="Password" [(ngModel)]="form.password" name="password">
+        <div style="color: red;"><td *ngIf="inputerror.password!=null">{{inputerror.password}}</td></div>
+        <br><br>
+        <button (click)="signIn()">SignIn</button>
+        <a  href="signup">signup</a>
+    </form>
+</body>
+
+</html>
+
+<app-footer></app-footer>
